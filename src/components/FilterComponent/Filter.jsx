@@ -15,14 +15,16 @@ export const Filter = () => {
 
   return (
     <FilterContainer>
-      <FilterLabel htmlFor="filter">Find contacts by name</FilterLabel>
-      <FilterInput
-        id="filter"
-        type="text"
-        name="filter"
-        onChange={handleFilterChange}
-        value={filter}
-      />
+      <FilterLabel htmlFor="filter">
+        Find contacts by name
+        <FilterInput
+          id="filter"
+          type="text"
+          name="filter"
+          onChange={handleFilterChange}
+          value={filter}
+        />
+      </FilterLabel>
     </FilterContainer>
   );
 };

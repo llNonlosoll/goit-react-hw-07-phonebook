@@ -1,24 +1,26 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-// import { selectIsLoading, selectError } from 'redux/selectors';
+import { selectContacts, selectIsLoading, selectError } from 'redux/selectors';
 
 import { Contacts } from './ContactsListComponent/ContactsList';
 import { ContactForm } from './ContactFormComponent/ContactForm';
 import { Filter } from './FilterComponent/Filter';
+import { Loader } from './LoaderComponent/Loader';
 
 import {
   AppContainer,
   AppTitle,
   AppSecondaryTitle,
-  // EmptyText,
+  EmptyText,
 } from './App.styled';
 
 export const App = () => {
   const dispatch = useDispatch();
 
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -30,11 +32,19 @@ export const App = () => {
 
       <ContactForm />
 
-      <AppSecondaryTitle>Contacts</AppSecondaryTitle>
+      {contacts.length > 0 && <AppSecondaryTitle>Contacts</AppSecondaryTitle>}
 
-      <Filter />
+      {isLoading && !error && <Loader />}
 
-      <Contacts />
+      {contacts.length > 0 ? (
+        <Filter />
+      ) : (
+        <EmptyText>YOUR PHONEBOOK IS EMPTY</EmptyText>
+      )}
+
+      {error && error}
+
+      {contacts.length > 0 && <Contacts />}
     </AppContainer>
   );
 };
