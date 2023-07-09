@@ -5,8 +5,8 @@ import { selectError, selectIsLoading, selectContacts } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
   const contacts = useSelector(selectContacts);
 
   useEffect(() => {
