@@ -44,28 +44,32 @@ export const ContactForm = () => {
 
   return (
     <ContactFormForm onSubmit={handleSubmit}>
-      <ContactFormLabel htmlFor="name">Name</ContactFormLabel>
-      <ContactFormInput
-        id="name"
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        value={name}
-        onChange={event => setName(event.target.value)}
-      />
-      <ContactFormLabel htmlFor="number">Number</ContactFormLabel>
-      <ContactFormInput
-        id="number"
-        type="tel"
-        name="phone"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        value={phone}
-        onChange={event => setPhone(event.target.value)}
-      />
+      <ContactFormLabel htmlFor="name">
+        Name
+        <ContactFormInput
+          id="name"
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          value={name}
+          onChange={event => setName(event.target.value)}
+        />
+      </ContactFormLabel>
+      <ContactFormLabel htmlFor="number">
+        Number
+        <ContactFormInput
+          id="number"
+          type="tel"
+          name="phone"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          value={phone}
+          onChange={event => setPhone(event.target.value)}
+        />
+      </ContactFormLabel>
       <ContactFormButton type="submit">Add Contact</ContactFormButton>
     </ContactFormForm>
   );
