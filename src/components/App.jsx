@@ -4,6 +4,7 @@ import { fetchContacts } from 'redux/operations';
 // import { selectIsLoading, selectError } from 'redux/selectors';
 
 import { Contacts } from './ContactsListComponent/ContactsList';
+import { ContactForm } from './ContactFormComponent/ContactForm';
 
 import {
   AppContainer,
@@ -25,8 +26,9 @@ export const App = () => {
   return (
     <AppContainer>
       <AppTitle>PhoneBook</AppTitle>
+      <ContactForm />
 
-      <Contacts></Contacts>
+      <Contacts />
     </AppContainer>
   );
 };
