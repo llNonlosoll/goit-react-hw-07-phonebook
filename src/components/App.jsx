@@ -1,30 +1,32 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+// import { selectIsLoading, selectError } from 'redux/selectors';
+
+import { Contacts } from './ContactsListComponent/ContactsList';
+
+import {
+  AppContainer,
+  AppTitle,
+  // AppSecondaryTitle,
+  // EmptyText,
+} from './App.styled';
 
 export const App = () => {
   const dispatch = useDispatch();
+
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
-  const contacts = useSelector(selectContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <p>{contacts.length > 0 && JSON.stringify(contacts, null, 2)}</p>
-    </div>
+    <AppContainer>
+      <AppTitle>PhoneBook</AppTitle>
+
+      <Contacts></Contacts>
+    </AppContainer>
   );
 };
