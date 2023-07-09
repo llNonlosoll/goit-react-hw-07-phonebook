@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading, selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
