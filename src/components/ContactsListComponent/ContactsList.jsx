@@ -1,8 +1,10 @@
+// import hooks useDispatch, useSelector
 import { useSelector, useDispatch } from 'react-redux';
-
+// import fetch function
 import { deleteContact } from 'redux/operations';
+// import selector
 import { selectFilteredContacts } from 'redux/selectors';
-
+// import styled components
 import {
   ContactsListList,
   ContactsListItem,
@@ -10,11 +12,15 @@ import {
   ContactsListButton,
 } from './ContactsList.styled';
 
+// Contacts component
 export const Contacts = () => {
+  // getting a list of contacts from the state
   const contacts = useSelector(selectFilteredContacts);
 
+  // variables dispatch
   const dispatch = useDispatch();
 
+  // delete contact function
   const handleContactDelete = id => {
     dispatch(deleteContact(id));
   };

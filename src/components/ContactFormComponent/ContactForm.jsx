@@ -1,10 +1,12 @@
+// import hook useState
 import { useState } from 'react';
+// import hooks useDispatch, useSelector
 import { useDispatch, useSelector } from 'react-redux';
-
+// import fetch function
 import { addContact } from 'redux/operations';
-
+// import selector
 import { selectContacts } from 'redux/selectors';
-
+// import styled components
 import {
   ContactFormForm,
   ContactFormLabel,
@@ -12,24 +14,30 @@ import {
   ContactFormButton,
 } from './ContactForm.styled';
 
+// ContactForm component
 export const ContactForm = () => {
-  const dispatch = useDispatch();
-
+  // local component state
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
+  // variables dispatch
+  const dispatch = useDispatch();
+
+  // getting a list of contacts from the state
   const contacts = useSelector(selectContacts);
 
+  // onSubmit function
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
 
+    // variables isInContacts
     const isInContacts = contacts.some(
       ({ name }) =>
         name.toLowerCase() === form.elements.name.value.toLowerCase()
     );
 
-    // Contact check if is in contact
+    // Contact check if contact is in contact list
     if (isInContacts) {
       alert(`${form.elements.name.value} is already in contacts`);
       return;
@@ -38,6 +46,7 @@ export const ContactForm = () => {
     // add contact
     dispatch(addContact({ name, phone }));
 
+    // form reset
     setName('');
     setPhone('');
   };

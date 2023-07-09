@@ -1,21 +1,27 @@
+// import createSlice function
 import { createSlice } from '@reduxjs/toolkit';
+// import fetch functions
 import { fetchContacts, addContact, deleteContact } from './operations';
 
+// handle the pending action by updating the state
 const handlePending = state => {
   state.isLoading = true;
 };
 
+// handle the rejected action by updating the state
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
 
+// initial state
 const initialContactsState = {
   items: [],
   isLoading: false,
   error: null,
 };
 
+// contactsSlice
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: initialContactsState,
