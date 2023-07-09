@@ -5,11 +5,12 @@ import { fetchContacts } from 'redux/operations';
 
 import { Contacts } from './ContactsListComponent/ContactsList';
 import { ContactForm } from './ContactFormComponent/ContactForm';
+import { Filter } from './FilterComponent/Filter';
 
 import {
   AppContainer,
   AppTitle,
-  // AppSecondaryTitle,
+  AppSecondaryTitle,
   // EmptyText,
 } from './App.styled';
 
@@ -26,7 +27,12 @@ export const App = () => {
   return (
     <AppContainer>
       <AppTitle>PhoneBook</AppTitle>
+
       <ContactForm />
+
+      <AppSecondaryTitle>Contacts</AppSecondaryTitle>
+
+      <Filter />
 
       <Contacts />
     </AppContainer>
