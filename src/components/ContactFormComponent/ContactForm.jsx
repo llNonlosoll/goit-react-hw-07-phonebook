@@ -57,8 +57,6 @@ export const ContactForm = () => {
   // onChange setPhone function
   const handlePhoneChange = event => setPhone(event.target.value);
 
-  console.log(name);
-
   return (
     <ContactFormForm onSubmit={handleSubmit}>
       <ContactFormLabel htmlFor="name">
