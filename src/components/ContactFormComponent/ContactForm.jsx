@@ -51,6 +51,14 @@ export const ContactForm = () => {
     setPhone('');
   };
 
+  // onChange setName function
+  const handleNameChange = event => setName(event.target.value);
+
+  // onChange setPhone function
+  const handlePhoneChange = event => setPhone(event.target.value);
+
+  console.log(name);
+
   return (
     <ContactFormForm onSubmit={handleSubmit}>
       <ContactFormLabel htmlFor="name">
@@ -63,7 +71,7 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
-          onChange={event => setName(event.target.value)}
+          onChange={handleNameChange}
         />
       </ContactFormLabel>
       <ContactFormLabel htmlFor="number">
@@ -76,7 +84,7 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           value={phone}
-          onChange={event => setPhone(event.target.value)}
+          onChange={handlePhoneChange}
         />
       </ContactFormLabel>
       <ContactFormButton type="submit">Add Contact</ContactFormButton>
